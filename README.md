@@ -1,4 +1,4 @@
-# Interface Gráfica dos Gases Reais
+# Interface Gráfica dos Gases Ideais
 <p>Interface gráfica foi desenvolvida com o intuito de auxiliar os alunos de ensino médio no estudo dos gases ideais.</p>
 <p>A interface permite a realização de cálculos e possui os principais as principais leis e equações que descrevem os gases ideais, a saber:</p>
 <ul>
