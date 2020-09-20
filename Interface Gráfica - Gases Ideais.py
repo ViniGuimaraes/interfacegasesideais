@@ -3,7 +3,7 @@ from math import *
 from functools import partial
 
 global aux_mudar_constante
-aux_mudar_constante = ["Pa", "m^3"]
+aux_mudar_constante = ["Pa", "m^3", "kg.m^-3"]
 
 def DensidadeGasCalculo(tfDensD, tfDensP, tfDensM, lbrR_D, tfDensT, uP, uT, uD):
     frToolBarBottom.grid_forget()
@@ -1316,51 +1316,54 @@ def EquacaoGeralDosGases():
 def mudarConstante(parametro):
     if parametro == "Pa" or parametro == "atm" or parametro == "mmHg":
         if parametro == "Pa":
-            if tkV_n.get() == "m^3" or tkV_Na.get() == "m^3" or tkV_M.get() == "m^3" or tkD.get() == "g.m^-3" or tkD.get() == "kg.m^-3":
+            aux_mudar_constante[0] = "Pa"
+            if aux_mudar_constante[1] == "m^3" or aux_mudar_constante[2] == "g.m^-3" or aux_mudar_constante[2] == "kg.m^-3":
                 lbrR["text"] = "8.31 Pa.m^3.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.31 Pa.m^3.mol^-1.K^-1"
                 lbrR_M["text"] = "8.31 Pa.m^3.mol^-1.K^-1"
                 lbrR_D["text"] = "8.31 Pa.m^3.mol^-1.K^-1"
-            elif tkV_n.get() == "L" or tkV_Na.get() == "L" or tkV_M.get() == "L" or tkD.get() == "g.L^-1":
+            elif aux_mudar_constante[1] == "L" or aux_mudar_constante[2] == "g.L^-1":
                 lbrR["text"] = "8.31x10^3 Pa.L.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.31x10^3 Pa.L.mol^-1.K^-1"
                 lbrR_M["text"] = "8.31x10^3 Pa.L.mol^-1.K^-1"
                 lbrR_D["text"] = "8.31x10^3 Pa.L.mol^-1.K^-1"
-            elif tkV_n.get() == "mL" or tkV_Na.get() == "mL" or tkV_M.get() == "mL" or tkD.get() == "g.ml^-1":
+            elif aux_mudar_constante[1] == "mL" or aux_mudar_constante[2] == "g.ml^-1":
                 lbrR["text"] = "8.31x10^6 Pa.mL.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.31x10^6 Pa.mL.mol^-1.K^-1"
                 lbrR_M["text"] = "8.31x10^6 Pa.mL.mol^-1.K^-1"
                 lbrR_D["text"] = "8.31x10^6 Pa.mL.mol^-1.K^-1"
 
         elif parametro == "atm":
-            if tkV_n.get() == "m^3" or tkV_Na.get() == "m^3" or tkV_M.get() == "m^3" or tkD.get() == "g.m^-3" or tkD.get() == "kg.m^-3":
+            aux_mudar_constante[0] = "atm"
+            if aux_mudar_constante[1] == "m^3" or aux_mudar_constante[2] == "g.m^-3" or aux_mudar_constante[2] == "kg.m^-3":
                 lbrR["text"] = "8.2x10^-5 atm.m^3.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.2x10^-5 atm.m^3.mol^-1.K^-1"
                 lbrR_M["text"] = "8.2x10^-5 atm.m^3.mol^-1.K^-1"
                 lbrR_D["text"] = "8.2x10^-5 atm.m^3.mol^-1.K^-1"
-            elif tkV_n.get() == "L" or tkV_Na.get() == "L" or tkV_M.get() == "L" or tkD.get() == "g.L^-1":
+            elif aux_mudar_constante[1] == "L" or aux_mudar_constante[2] == "g.L^-1":
                 lbrR["text"] = "8.2x10^-2 atm.L.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.2x10^-2 atm.L.mol^-1.K^-1"
                 lbrR_M["text"] = "8.2x10^-2 atm.L.mol^-1.K^-1"
                 lbrR_D["text"] = "8.2x10^-2 atm.L.mol^-1.K^-1"
-            elif tkV_n.get() == "mL" or tkV_Na.get() == "mL" or tkV_M.get() == "mL" or tkD.get() == "g.ml^-1":
+            elif aux_mudar_constante[1] == "mL" or aux_mudar_constante[2] == "g.ml^-1":
                 lbrR["text"] = "82 atm.mL.mol^-1.K^-1"
                 lbrR_Na["text"] = "82 atm.mL.mol^-1.K^-1"
                 lbrR_M["text"] = "82 atm.mL.mol^-1.K^-1"
                 lbrR_D["text"] = "82 atm.mL.mol^-1.K^-1"
 
         elif parametro == "mmHg":
-            if tkV_n.get() == "m^3" or tkV_Na.get() == "m^3" or tkV_M.get() == "m^3" or tkD.get() == "g.m^-3" or tkD.get() == "kg.m^-3":
+            aux_mudar_constante[0] = "mmHg"
+            if aux_mudar_constante[1] == "m^3" or aux_mudar_constante[2] == "g.m^-3" or aux_mudar_constante[2] == "kg.m^-3":
                 lbrR["text"] = "6.2x10^-2 mmHg.m^3.mol^-1.K^-1"
                 lbrR_Na["text"] = "6.2x10^-2 mmHg.m^3.mol^-1.K^-1"
                 lbrR_M["text"] = "6.2x10^-2 mmHg.m^3.mol^-1.K^-1"
                 lbrR_D["text"] = "6.2x10^-2 mmHg.m^3.mol^-1.K^-1"
-            elif tkV_n.get() == "L" or tkV_Na.get() == "L" or tkV_M.get() == "L" or tkD.get() == "g.L^-1":
+            elif aux_mudar_constante[1] == "L" or aux_mudar_constante[2] == "g.L^-1":
                 lbrR["text"] = "62.32 mmHg.L.mol^-1.K^-1"
                 lbrR_Na["text"] = "62.32 mmHg.L.mol^-1.K^-1"
                 lbrR_M["text"] = "62.32 mmHg.L.mol^-1.K^-1"
                 lbrR_D["text"] = "62.32 mmHg.L.mol^-1.K^-1"
-            elif tkV_n.get() == "mL" or tkV_Na.get() == "mL" or tkV_M.get() == "mL" or tkD.get() == "g.ml^-1":
+            elif aux_mudar_constante[1] == "mL" or aux_mudar_constante[2] == "g.ml^-1":
                 lbrR["text"] = "62320 mmHg.mL.mol^-1.K^-1"
                 lbrR_Na["text"] = "62320 mmHg.mL.mol^-1.K^-1"
                 lbrR_M["text"] = "62320 mmHg.mL.mol^-1.K^-1"
@@ -1368,49 +1371,61 @@ def mudarConstante(parametro):
 
     elif parametro == "m^3" or parametro == "L" or parametro == "mL" or parametro == "g.ml^-1" or parametro == "g.L^-1" or parametro == "kg.m^-3" or parametro == "g.m^-3":
         if parametro == "m^3" or parametro == "g.m^-3" or parametro == "kg.m^-3":
-            if tkP_n.get() == "Pa" or tkP_Na.get() == "Pa" or tkP_M.get() == "Pa":
+            if parametro == "m^3":
+                aux_mudar_constante[1] = "m^3"
+            elif parametro == "g.m^-3":
+                aux_mudar_constante[1] = "m^3"
+                aux_mudar_constante[2] = "g.m^-3"
+            elif parametro == "kg.m^-3":
+                aux_mudar_constante[1] = "m^3"
+                aux_mudar_constante[2] = "kg.m^-3"
+            if aux_mudar_constante[0] == "Pa":
                 lbrR["text"] = "8.31 Pa.m^3.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.31 Pa.m^3.mol^-1.K^-1"
                 lbrR_M["text"] = "8.31 Pa.m^3.mol^-1.K^-1"
                 lbrR_D["text"] = "8.31 Pa.m^3.mol^-1.K^-1"
-            if tkP_n.get() == "atm" or tkP_Na.get() == "atm" or tkP_M.get() == "atm":
+            if aux_mudar_constante[0] == "atm":
                 lbrR["text"] = "8.2x10^-5 atm.m^3.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.2x10^-5 atm.m^3.mol^-1.K^-1"
                 lbrR_M["text"] = "8.2x10^-5 atm.m^3.mol^-1.K^-1"
                 lbrR_D["text"] = "8.2x10^-5 atm.m^3.mol^-1.K^-1"
-            if tkP_n.get() == "mmHg" or tkP_Na.get() == "mmHg" or tkP_M.get() == "mmHg":
+            if aux_mudar_constante[0] == "mmHg":
                 lbrR["text"] = "6.2x10^-2 mmHg.m^3.mol^-1.K^-1"
                 lbrR_Na["text"] = "6.2x10^-2 mmHg.m^3.mol^-1.K^-1"
                 lbrR_M["text"] = "6.2x10^-2 mmHg.m^3.mol^-1.K^-1"
                 lbrR_D["text"] = "6.2x10^-2 mmHg.m^3.mol^-1.K^-1"
         elif parametro == "L" or parametro == "g.L^-1":
-            if tkP_n.get() == "Pa" or tkP_Na.get() == "Pa" or tkP_M.get() == "Pa":
+            aux_mudar_constante[1] = "L"
+            aux_mudar_constante[2] = "g.L^-1"
+            if aux_mudar_constante[0] == "Pa":
                 lbrR["text"] = "8.31x10^3 Pa.L.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.31x10^3 Pa.L.mol^-1.K^-1"
                 lbrR_M["text"] = "8.31x10^3 Pa.L.mol^-1.K^-1"
                 lbrR_D["text"] = "8.31x10^3 Pa.L.mol^-1.K^-1"
-            if tkP_n.get() == "atm" or tkP_Na.get() == "atm" or tkP_M.get() == "atm":
+            if aux_mudar_constante[0] == "atm":
                 lbrR["text"] = "8.2x10^-2 atm.L.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.2x10^-2 atm.L.mol^-1.K^-1"
                 lbrR_M["text"] = "8.2x10^-2 atm.L.mol^-1.K^-1"
                 lbrR_D["text"] = "8.2x10^-2 atm.L.mol^-1.K^-1"
-            if tkP_n.get() == "mmHg" or tkP_Na.get() == "mmHg" or tkP_M.get() == "mmHg":
+            if aux_mudar_constante[0] == "mmHg":
                 lbrR["text"] = "62.32 mmHg.L.mol^-1.K^-1"
                 lbrR_Na["text"] = "62.32 mmHg.L.mol^-1.K^-1"
                 lbrR_M["text"] = "62.32 mmHg.L.mol^-1.K^-1"
                 lbrR_D["text"] = "62.32 mmHg.L.mol^-1.K^-1"
         elif parametro == "mL" or parametro == "g.ml^-1":
-            if tkP_n.get() == "Pa" or tkP_Na.get() == "Pa" or tkP_M.get() == "Pa":
+            aux_mudar_constante[1] = "mL"
+            aux_mudar_constante[2] = "g.ml^-1"
+            if aux_mudar_constante[0] == "Pa":
                 lbrR["text"] = "8.31x10^6 Pa.mL.mol^-1.K^-1"
                 lbrR_Na["text"] = "8.31x10^6 Pa.mL.mol^-1.K^-1"
                 lbrR_M["text"] = "8.31x10^6 Pa.mL.mol^-1.K^-1"
                 lbrR_D["text"] = "8.31x10^6 Pa.mL.mol^-1.K^-1"
-            if tkP_n.get() == "atm" or tkP_Na.get() == "atm" or tkP_M.get() == "atm":
+            if aux_mudar_constante[0] == "atm":
                 lbrR["text"] = "82 atm.mL.mol^-1.K^-1"
                 lbrR_Na["text"] = "82 atm.mL.mol^-1.K^-1"
                 lbrR_M["text"] = "82 atm.mL.mol^-1.K^-1"
                 lbrR_D["text"] = "82 atm.mL.mol^-1.K^-1"
-            if tkP_n.get() == "mmHg" or tkP_Na.get() == "mmHg" or tkP_M.get() == "mmHg":
+            if aux_mudar_constante[0] == "mmHg":
                 lbrR["text"] = "62320 mmHg.mL.mol^-1.K^-1"
                 lbrR_Na["text"] = "62320 mmHg.mL.mol^-1.K^-1"
                 lbrR_M["text"] = "62320 mmHg.mL.mol^-1.K^-1"
